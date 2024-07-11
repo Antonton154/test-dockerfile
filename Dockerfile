@@ -13,7 +13,7 @@ EXPOSE 8127
 
 WORKDIR /flaskr
 
-ENV FLASK_APP=hello.py
+ENV FLASK_APP=/py
 
 
 CMD ["flask", "run", "--host=0.0.0.0"]

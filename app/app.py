@@ -48,7 +48,7 @@ def get_account():
     offset = (page - 1) * size
 
     curs = conn.cursor()
-    query = "SELECT * FROM ESIGN_ACCOUNT ORDER BY id OFFSET ? ROWS LIMIT ?"
+    query = "SELECT * FROM ESIGN_ACCOUNT ORDER BY id OFFSET %s ROWS LIMIT %s"
     curs.execute(query, (offset, size))
     accounts = curs.fetchall()
     curs.close()

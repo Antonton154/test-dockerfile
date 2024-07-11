@@ -9,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 
-EXPOSE 9102
+EXPOSE 8127
 
 ENV FLASK_APP=hello.py
 

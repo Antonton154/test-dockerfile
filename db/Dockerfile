@@ -10,4 +10,4 @@ ENV POSTGRES_PASSWORD=mypassword
 COPY init.sql /docker-entrypoint-initdb.d/
 
 # Expose the PostgreSQL port
-EXPOSE 5432
+EXPOSE 8269

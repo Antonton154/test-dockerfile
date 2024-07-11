@@ -13,4 +13,6 @@ EXPOSE 8127
 
 ENV FLASK_APP=hello.py
 
+RUN cd flaskr
+
 CMD ["flask", "run", "--host=0.0.0.0"]

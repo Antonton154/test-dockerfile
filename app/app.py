@@ -10,7 +10,7 @@ args = '-Djava.class.path=%s' % jar
 
 jvm_path = jpype.getDefaultJVMPath()
 jpype.startJVM(jvm_path, args)
-conn = jaydebeapi.connect("org.postgresql.Driver", "jdbc:postgresql:thin:@10.82.71.188:8269:mydatabase", ["myuser", "mypassword"])
+conn = jaydebeapi.connect("org.postgresql.Driver", "jdbc:postgresql:thin:@10.82.66.192:8269:mydatabase", ["myuser", "mypassword"])
 
 class Account:
     def __init__(self, array):

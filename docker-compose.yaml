@@ -13,6 +13,8 @@ services:
     image: postgres:12
     restart: always
     build: ./db
+    ports:
+      - "5432:8299"
     environment:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser

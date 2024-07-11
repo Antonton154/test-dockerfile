@@ -11,8 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8127
 
+RUN cd flaskr
+
 ENV FLASK_APP=hello.py
 
-RUN cd flaskr
 
 CMD ["flask", "run", "--host=0.0.0.0"]

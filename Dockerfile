@@ -11,8 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8127
 
-WORKDIR /flaskr
-
 ENV FLASK_APP=app.py
 
 

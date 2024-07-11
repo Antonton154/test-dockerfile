@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8127
 
-RUN cd flaskr
+WORKDIR /flaskr
 
 ENV FLASK_APP=hello.py
 

@@ -1,16 +1,10 @@
 from flask import Flask, jsonify, request
-import jpype
-import jaydebeapi
+import psycopg2
 import os
 
 app = Flask(__name__)
 
-jar = os.getcwd() + '/ojdbc8.jar'
-args = '-Djava.class.path=%s' % jar
-
-jvm_path = jpype.getDefaultJVMPath()
-jpype.startJVM(jvm_path, args)
-conn = jaydebeapi.connect("oracle.jdbc.OracleDriver", "jdbc:oracle:thin:@10.82.71.188:1521:tcbssit", ["TCBSCASIT", "ZFTSAc2PJWabdDVnbpbG"])
+conn = psycopg2.connect(database="mydatabase", user="myuser", password="mypassword", host="10.82.66.192", port=8269)
 
 class Account:
     def __init__(self, array):
@@ -54,7 +48,7 @@ def get_account():
     offset = (page - 1) * size
 
     curs = conn.cursor()
-    query = "SELECT * FROM ESIGN_ACCOUNT ORDER BY id OFFSET ? ROWS FETCH NEXT ? ROWS ONLY"
+    query = "SELECT * FROM ESIGN_ACCOUNT ORDER BY id OFFSET ? ROWS LIMIT ?"
     curs.execute(query, (offset, size))
     accounts = curs.fetchall()
     curs.close()

@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-import json
 import jpype
 import jaydebeapi
 import os

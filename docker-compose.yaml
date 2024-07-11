@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  web:
+    build: ./app
+    ports:
+      - "5000:8127"
+    environment:
+      FLASK_APP: hello.py
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    restart: always
+    build: ./db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

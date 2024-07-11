@@ -4,7 +4,7 @@ ENV PIP_ROOT_USER_ACTION=ignore
 
 WORKDIR /app
 
-COPY . /app
+COPY .. /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN apt-get update && \

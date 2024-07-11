@@ -4,7 +4,7 @@ import jpype
 import jaydebeapi
 import os
 
-app = Flask("proj")
+app = Flask("hello")
 
 jar = os.getcwd() + '/ojdbc8.jar'
 args = '-Djava.class.path=%s' % jar

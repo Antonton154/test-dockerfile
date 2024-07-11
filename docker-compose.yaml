@@ -5,7 +5,7 @@ services:
     ports:
       - "8127:5000"
     environment:
-      FLASK_APP: hello.py
+      FLASK_APP: app.py
     depends_on:
       - db
 

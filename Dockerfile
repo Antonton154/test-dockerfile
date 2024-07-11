@@ -1,5 +1,7 @@
 FROM python:3.12-slim
 
+ENV PIP_ROOT_USER_ACTION=ignore
+
 WORKDIR /app
 
 COPY . /app
@@ -7,7 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 
-EXPOSE 5000
+EXPOSE 9102
 
 ENV FLASK_APP=hello.py
 

@@ -14,7 +14,7 @@ services:
     restart: always
     build: ./db
     ports:
-      - "5432:8269"
+      - "8269:5432"
     environment:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser

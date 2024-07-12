@@ -1,27 +1,26 @@
+-- Create database if it doesn't exist
 DO
 $do$
 BEGIN
    IF NOT EXISTS (
-      SELECT
-      FROM pg_catalog.pg_database
-      WHERE datname = 'mydatabase') THEN
-      PERFORM dblink_exec('dbname=postgres', 'CREATE DATABASE mydatabase');
+      SELECT FROM pg_catalog.pg_database WHERE datname = 'mydatabase'
+   ) THEN
+      PERFORM dblink_exec('dbname=' || current_database(), 'CREATE DATABASE mydatabase');
    END IF;
 END
 $do$;
 
 -- Connect to mydatabase
-\connect mydatabase;
+\c mydatabase
 
 -- Create user 'myuser' with password 'mypassword' and grant privileges
 DO
 $do$
 BEGIN
    IF NOT EXISTS (
-      SELECT
-      FROM pg_catalog.pg_roles
-      WHERE rolname = 'myuser') THEN
-      PERFORM dblink_exec('dbname=mydatabase', 'CREATE USER myuser WITH ENCRYPTED PASSWORD ''mypassword''');
+      SELECT FROM pg_catalog.pg_roles WHERE rolname = 'myuser'
+   ) THEN
+      CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
    END IF;
 END
 $do$;

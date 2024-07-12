@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-conn = psycopg2.connect(database="mydatabase", user="myuser", password="mypassword", host="db", port=5432)
+conn = psycopg2.connect(database="mydatabase", user="myuser", password="mypassword", host="10.82.66.192", port=8269)
 
 class Account:
     def __init__(self, array):

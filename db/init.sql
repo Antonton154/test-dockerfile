@@ -1,12 +1,12 @@
--- Create tables for ESIGN_ACCOUNT and USERS
+-- Create ESIGN_ACCOUNT table if it does not exist
 CREATE TABLE IF NOT EXISTS ESIGN_ACCOUNT (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id SERIAL PRIMARY KEY,
     accountId TEXT NOT NULL,
     eSignId TEXT NOT NULL,
     status TEXT,
     description TEXT,
-    createdAt TEXT,
-    updatedAt TEXT,
+    createdAt TIMESTAMP,
+    updatedAt TIMESTAMP,
     cert TEXT,
     tcbsId TEXT,
     party TEXT,
